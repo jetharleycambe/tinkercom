@@ -314,7 +314,6 @@ $site_total = intval($site_avg_sql['total']);
         <?php endif; ?>
     </section>
 
-    <?php include 'login-modal.php'; ?>
     <?php include 'footer.php'; ?>
 
     <div id="atc-toast"></div>
