@@ -627,7 +627,7 @@ document.querySelectorAll(".login-form, .reg-form").forEach(form => {
     // ======================
   let formData = new FormData(form);
 
-fetch(form.action, {
+fetch("/api/login.php", {
   method: "POST",
   body: formData
 })
