@@ -1,7 +1,7 @@
 <!-- LOGIN MODAL -->
 <div class="login-modal" id="loginModalDisplay">
     <div class="log-in">
-        <form action="login.php" method="POST" class="login-form" id="login-form">
+        <form action="/login.php" method="POST" class="login-form" id="login-form">
             <h1>Welcome to Tinkercom</h1>
             <h3>Login</h3>
             <p class="error-message"></p>
@@ -31,7 +31,7 @@
 <!-- REGISTER MODAL -->
 <div class="register-modal" id="registerModalDisplay">
     <div class="register">
-        <form action="register.php" method="POST" class="reg-form" id="reg-form">
+        <form action="/register.php" method="POST" class="reg-form" id="reg-form">
             <h1>Welcome to Tinkercom</h1>
             <h3>Create your Account</h3>
             <p class="error-message"></p>
