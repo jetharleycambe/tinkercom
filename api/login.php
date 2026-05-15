@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
         <div>
-          <button id="log-in-btn" type="submit">Login</button>
+          <button id="log-in-btn" type="button" onclick="document.getElementById('login-form').dispatchEvent(new Event('submit'))">Login</button>
         </div>
 
         <div>
