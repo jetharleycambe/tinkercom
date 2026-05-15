@@ -633,6 +633,7 @@ fetch(form.getAttribute('action'),{
 })
 .then(res => res.text())
 .then(data => {
+  console.log("SERVER RESPONSE:", JSON.stringify(data)); // ← add this
   data = data.trim();
 
   // CLEAR OLD MESSAGE
