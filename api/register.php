@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body id="register-body">
   <main>
     <div class="register">
-      <form action="/register.php" method="POST" class="reg-form" id="reg-form">
+      <form action="register.php" method="POST" class="reg-form" id="reg-form">
         <h1>Welcome to Tinkercom</h1>
         <h3>Create your Account</h3>
         <p class="error-message"></p>
@@ -121,35 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   </main>
   <script src="javascript.js"></script>
 </body>
-<footer>
-  <div class="footer-container">
-    <div class="footer-links">
-      <h3>LINKS</h3>
-      <a href="index.php">Home</a>
-      <a href="">My Account</a>
-      <a href="">My Order</a>
-      <a href="">My Wishlist</a>
-    </div>
-
-    <div class="footer-contact">
-      <h3>CONTACT US</h3>
-      <a href="">Tinkercom Computer Parts and Accessories Shop</a>
-      <a href="">0961-346-9709</a>
-    </div>
-
-    <div class="footer-location">
-      <h3>LOCATE US</h3>
-      <a href="">Blk 6 Lot 4 Alegra Heights <br> 1 Brgy. San Vicente Santa <br> Maria, City of Santa Maria, <br> 3022
-        Bulacan</a>
-    </div>
-
-    <div class="home-logo">
-      <img src="assets/tinkercom-logoe.png" alt="">
-      <h3>Tinkercom</h3>
-    </div>
-
-  </div>
-</footer>
+<?php include 'footer.php'; ?>
 
 </html>
 
