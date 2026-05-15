@@ -653,17 +653,23 @@ fetch(form.getAttribute('action'),{
   }
 
   if (data === "account-info") {
-    // Close all modals
-    document.getElementById("loginModalDisplay").style.display = "none";
-    document.getElementById("registerModalDisplay").style.display = "none";
-    // Redirect to the new setup page instead of showing the old modal
+    const loginModal = document.getElementById("loginModalDisplay");
+    const registerModal = document.getElementById("registerModalDisplay");
+    
+    if (loginModal) loginModal.style.display = "none";
+    if (registerModal) registerModal.style.display = "none";
+    
     window.location.href = "/account-info.php";
     return;
 }
 
   if (data === "account-info-address") {
-    document.getElementById("loginModalDisplay").style.display = "none";
-    document.getElementById("registerModalDisplay").style.display = "none";
+    const loginModal = document.getElementById("loginModalDisplay");
+    const registerModal = document.getElementById("registerModalDisplay");
+    
+    if (loginModal) loginModal.style.display = "none";
+    if (registerModal) registerModal.style.display = "none";
+    
     window.location.href = "/account-info.php?step=address";
     return;
 }
