@@ -2,8 +2,8 @@
 /**
  * PART 4B — COMPUTER PARTS PAGE
  */
+include 'db.php';  
 session_start();
-include 'db.php';
 
 // ── Read URL filters ─────────────────────────────────────────
 $sub_id       = isset($_GET['sub'])   ? intval($_GET['sub'])   : 0;

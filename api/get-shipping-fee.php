@@ -4,8 +4,8 @@
  * Called via AJAX from checkout.php
  * Returns JSON: { zone_name, base_fee, extra_fee, total_fee, free_shipping }
  */
+include 'db.php';  
 session_start();
-include 'db.php';
 
 header('Content-Type: application/json');
 

@@ -1,6 +1,6 @@
 <?php
+include 'db.php';  
 session_start();
-include 'db.php';
 
 if (!isset($_SESSION["appointment_id"])) {
     header("Location: services.php");

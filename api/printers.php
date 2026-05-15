@@ -10,8 +10,8 @@
  *  - ?sub=XX filters by sub-category_id
  *  - Active sub-category is highlighted in sidebar
  */
+include 'db.php';  
 session_start();
-include 'db.php';
 
 // ── Read URL filters ────────────────────────────────────────
 $sub_id      = isset($_GET['sub'])   ? intval($_GET['sub'])   : 0;

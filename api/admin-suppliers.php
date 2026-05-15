@@ -12,8 +12,8 @@
  *  - Create restock orders (supplier_orders table)
  *  - View restock order history
  */
+include 'db.php';  
 session_start();
-include 'db.php';
 include 'session-check.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'ADMIN') {

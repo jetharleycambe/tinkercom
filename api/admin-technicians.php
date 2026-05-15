@@ -8,8 +8,8 @@
  *  - View assigned appointments per technician
  *  - Toggle availability status
  */
+include 'db.php';  
 session_start();
-include 'db.php';
 include 'session-check.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'ADMIN') {

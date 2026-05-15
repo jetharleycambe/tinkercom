@@ -1,6 +1,6 @@
 <?php
+include 'db.php';  
 session_start();
-include 'db.php';
 
 if (!isset($_GET['id'])) {
     header("Location: index.php");

@@ -1,4 +1,5 @@
 <?php
+include 'db.php';  
 session_start();
 // if (!isset($_SESSION["customer_name"])) {
 //   header("Location: login.php");

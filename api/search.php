@@ -7,8 +7,8 @@
  *  - Left sidebar: category filter, brand filter, price range
  *  - Main area:    sort bar, active filter tags, product-card grid
  */
+include 'db.php';  
 session_start();
-include 'db.php';
 
 // ── Read URL params ──────────────────────────────────────────
 $q            = isset($_GET['q'])     ? trim($_GET['q'])     : '';

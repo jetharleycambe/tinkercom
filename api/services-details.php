@@ -1,11 +1,6 @@
 <?php
+include 'db.php';  
 session_start();
-// if (!isset($_SESSION["customer_name"])) {
-//   header("Location: login.php");
-//   exit;
-// }
-
-include 'db.php';
 
 $service_name = isset($_GET["service"]) ? trim($_GET["service"]) : "General Service";
 if (isset($_GET["service"])) {

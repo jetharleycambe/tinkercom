@@ -8,8 +8,8 @@
  *  - Total weight of cart items (products.weight_kg × quantity)
  *  - Subtotal (for free shipping threshold check)
  */
+include 'db.php';  
 session_start();
-include 'db.php';
 
 if (!isset($_SESSION["customer_id"])) {
     header("Location: login.php");

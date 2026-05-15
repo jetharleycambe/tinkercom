@@ -1,7 +1,6 @@
 <?php
-
+include 'db.php';  
 session_start();
-include 'db.php';
 
 // Must be logged in to access this page
 if (!isset($_SESSION['customer_id'])) {

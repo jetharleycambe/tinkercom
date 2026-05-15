@@ -1,8 +1,7 @@
 <?php
-
+include 'db.php';  
 session_start();
 
-include 'db.php';
 // Read filters from URL
 $min_price = isset($_GET["min"]) ? intval($_GET["min"]) : 0;
 $max_price = isset($_GET["max"]) ? intval($_GET["max"]) : 999999;
