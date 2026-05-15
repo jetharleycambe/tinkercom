@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
         <div>
-          <button id="log-in-btn" type="button" onclick="document.getElementById('login-form').dispatchEvent(new Event('submit'))">Login</button>
+          <button type="button" id="log-in-btn" onclick="testLogin()">Login</button>
         </div>
 
         <div>
@@ -124,6 +124,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       </form>
     </div>
   </main>
+  <script>
+function testLogin() {
+  const form = document.getElementById('login-form');
+  const formData = new FormData(form);
+  
+  fetch('/login.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(res => res.text())
+  .then(data => {
+    alert('Response: ' + data);  // shows exact response
+  })
+  .catch(err => {
+    alert('Error: ' + err);
+  });
+}
+</script>
   <script src="javascript.js"></script>
 </body>
 
