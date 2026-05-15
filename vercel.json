@@ -4,10 +4,8 @@
       "runtime": "vercel-php@0.9.0"
     }
   },
+  "includeFiles": ["ca.pem"],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/api/$1"
-    }
+    { "src": "/(.*)", "dest": "/api/$1" }
   ]
 }
