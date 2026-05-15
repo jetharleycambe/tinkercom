@@ -11,8 +11,9 @@ $port = 28987;
 $conn = mysqli_init();
 
 // 3. Point to the SSL certificate you downloaded
-// This assumes 'ca.pem' is in the same folder as this PHP file
-mysqli_ssl_set($conn, NULL, NULL, "../ca.pem", NULL, NULL);
+$ca_path = realpath(__DIR__ . '/../ca.pem');
+
+mysqli_ssl_set($conn, NULL, NULL, $ca_path, NULL, NULL);
 
 // 4. Establish the connection
 $real_connect = mysqli_real_connect(
