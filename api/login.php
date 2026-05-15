@@ -125,24 +125,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
   </main>
   <script>
-function testLogin() {
-  const form = document.getElementById('login-form');
-  const formData = new FormData(form);
-  
-  fetch('/login.php', {
-    method: 'POST',
-    body: formData
-  })
-  .then(res => res.text())
-  .then(data => {
-    alert('Response: ' + data);  // shows exact response
-  })
-  .catch(err => {
-    alert('Error: ' + err);
-  });
-}
+document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    
+    fetch('/login.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.text())
+    .then(data => {
+        alert('GOT: ' + data.trim());
+        if (data.trim() === 'account-info') {
+            window.location.href = '/account-info.php';
+        } else if (data.trim() === 'index') {
+            window.location.href = '/index.php';
+        } else if (data.trim() === 'admin') {
+            window.location.href = '/admin-dashboard.php';
+        } else if (data.trim() === 'account-info-address') {
+            window.location.href = '/account-info.php?step=address';
+        }
+    })
+    .catch(err => alert('ERROR: ' + err));
+});
 </script>
-  <script src="javascript.js"></script>
 </body>
 
 </html>
