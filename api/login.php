@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body id="log-in-body">
   <main>
     <div class="log-in">
-      <form action="login.php" method="POST" class="login-form" id="login-form">
+      <form action="/api/login.php" method="POST" class="login-form" id="login-form">
         <h1>Welcome to Tinkercom</h1>
         <h3>Login</h3>
         <p class="error-message"></p>
