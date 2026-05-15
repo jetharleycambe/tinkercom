@@ -125,10 +125,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
   </main>
   <script>
-document.getElementById('login-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+function testLogin() {
+    const username = document.getElementById('log-username').value;
+    const password = document.getElementById('log-pass').value;
     
-    const formData = new FormData(this);
+    const formData = new FormData();
+    formData.append('username', username);
+    formData.append('password', password);
     
     fetch('/login.php', {
         method: 'POST',
@@ -148,7 +151,7 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
         }
     })
     .catch(err => alert('ERROR: ' + err));
-});
+}
 </script>
 </body>
 
