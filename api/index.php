@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php';
+include 'api/db.php';
 
 
 // --- Featured / Top Sellers (is_featured = 1) ---
