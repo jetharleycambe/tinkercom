@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body id="register-body">
   <main>
     <div class="register">
-      <form action="/api/register.php" method="POST" class="reg-form" id="reg-form">
+      <form action="/register.php" method="POST" class="reg-form" id="reg-form">
         <h1>Welcome to Tinkercom</h1>
         <h3>Create your Account</h3>
         <p class="error-message"></p>
