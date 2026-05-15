@@ -413,30 +413,25 @@ window.addEventListener("load", function () {
     let itemCount = 0;
 
     selectedCards.forEach(function (card) {
-
         const stockStatus = card.getAttribute("data-stock");
-
-        // SKIP OUT OF STOCK ITEMS
         if (stockStatus === "Out of Stock") {
             card.classList.remove("selected");
             return;
         }
-
         const price = parseFloat(card.getAttribute("data-price"));
         const qty = parseInt(card.getAttribute("data-qty"));
-
         total += price * qty;
         itemCount += qty;
     });
 
-    document.getElementById("subtotal").textContent =
-        "₱" + total.toLocaleString("en-PH", { minimumFractionDigits: 2 });
+    // ✅ Add null checks
+    const subtotalEl = document.getElementById("subtotal");
+    const cartTotalEl = document.getElementById("cart-total");
+    const summaryCountEl = document.getElementById("summary-count");
 
-    document.getElementById("cart-total").textContent =
-        "₱" + total.toLocaleString("en-PH", { minimumFractionDigits: 2 });
-
-    document.getElementById("summary-count").textContent =
-        itemCount + " item" + (itemCount !== 1 ? "s" : "") + " selected";
+    if (subtotalEl) subtotalEl.textContent = "₱" + total.toLocaleString("en-PH", { minimumFractionDigits: 2 });
+    if (cartTotalEl) cartTotalEl.textContent = "₱" + total.toLocaleString("en-PH", { minimumFractionDigits: 2 });
+    if (summaryCountEl) summaryCountEl.textContent = itemCount + " item" + (itemCount !== 1 ? "s" : "") + " selected";
 }
 });
 
