@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
         <div>
-          <button type="button" id="log-in-btn" onclick="testLogin()">Login</button>
+          <button id="log-in-btn" type="submit">Login</button>
         </div>
 
         <div>
@@ -124,34 +124,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       </form>
     </div>
   </main>
-  <script>
-function testLogin() {
-    const username = document.getElementById('log-username').value;
-    const password = document.getElementById('log-pass').value;
-    
-    const formData = new FormData();
-    formData.append('username', username);
-    formData.append('password', password);
-    
-    fetch('/login.php', {
-        method: 'POST',
-        body: formData
-    })
+  <script src="javascript.js"></script>
+<script>
+// Override for standalone login page
+document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation(); // stops javascript.js listener too
+
+    const formData = new FormData(this);
+    fetch('/login.php', { method: 'POST', body: formData })
     .then(res => res.text())
     .then(data => {
-        alert('GOT: ' + data.trim());
-        if (data.trim() === 'account-info') {
+        data = data.trim();
+        const err = document.querySelector('.error-message');
+        if (data === 'account-info') {
             window.location.href = '/account-info.php';
-        } else if (data.trim() === 'index') {
-            window.location.href = '/index.php';
-        } else if (data.trim() === 'admin') {
-            window.location.href = '/admin-dashboard.php';
-        } else if (data.trim() === 'account-info-address') {
+        } else if (data === 'account-info-address') {
             window.location.href = '/account-info.php?step=address';
+        } else if (data === 'index') {
+            window.location.href = '/index.php';
+        } else if (data === 'admin') {
+            window.location.href = '/admin-dashboard.php';
+        } else {
+            if (err) err.textContent = data;
         }
-    })
-    .catch(err => alert('ERROR: ' + err));
-}
+    });
+});
 </script>
 </body>
 
