@@ -1,7 +1,6 @@
 <?php
 session_start();
-include 'db.php';
-
+include __DIR__ . '/db.php';
 
 // --- Featured / Top Sellers (is_featured = 1) ---
 $featured_sql = "SELECT products.*, categories.category_name

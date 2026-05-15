@@ -12,12 +12,7 @@ $conn = mysqli_init();
 
 // 3. Point to the SSL certificate you downloaded
 // This tells PHP to look in the main folder (root) for the pem file
-$ca_path = $_SERVER['DOCUMENT_ROOT'] . '/ca.pem';
-
-// If that doesn't exist, it falls back to the relative path
-if (!file_exists($ca_path)) {
-    $ca_path = realpath(__DIR__ . '/../ca.pem');
-}
+$ca_path = __DIR__ . '/ca.pem'; // always relative to db.php
 
 mysqli_ssl_set($conn, NULL, NULL, $ca_path, NULL, NULL);
 // 4. Establish the connection
