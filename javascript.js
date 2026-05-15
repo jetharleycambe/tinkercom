@@ -128,7 +128,7 @@ var selectedIds = [];
                 alert("Please select at least one item to checkout.");
                 return;
             }
-            window.location.href = "checkout.php?items=" + selectedIds.join(",");
+            window.location.href = "/checkout.php?items=" + selectedIds.join(",");
         }
 
 
@@ -627,7 +627,7 @@ document.querySelectorAll(".login-form, .reg-form").forEach(form => {
     // ======================
   let formData = new FormData(form);
 
-fetch(form.action, {
+fetch(form.getAttribute('action'),{
   method: "POST",
   body: formData
 })
@@ -656,19 +656,19 @@ fetch(form.action, {
     document.getElementById("loginModalDisplay").style.display = "none";
     document.getElementById("registerModalDisplay").style.display = "none";
     // Redirect to the new setup page instead of showing the old modal
-    window.location.href = "account-info.php";
+    window.location.href = "/account-info.php";
     return;
 }
 
   if (data === "account-info-address") {
     document.getElementById("loginModalDisplay").style.display = "none";
     document.getElementById("registerModalDisplay").style.display = "none";
-    window.location.href = "account-info.php?step=address";
+    window.location.href = "/account-info.php?step=address";
     return;
 }
 
   if (data === "success") {
-    window.location.href = "account-info.php";
+    window.location.href = "/account-info.php";
     return;
 }
 
@@ -676,12 +676,12 @@ fetch(form.action, {
     document.querySelectorAll('.login-modal, .register-modal, .account-modal').forEach(modal => {
         modal.style.display = "none";
     });
-    window.location.href = "index.php";
+    window.location.href = "/index.php";
     return;
 }
 
   if (data === "admin") {
-    window.location.href = "admin-dashboard.php";
+    window.location.href = "/admin-dashboard.php";
     return;
   }
 
@@ -755,7 +755,7 @@ function initSearch(inputId, suggestionsId) {
                             <span class="suggestion-price">₱${item.price}</span>
                         `;
                         div.addEventListener("click", function () {
-                            window.location.href = "product-details.php?id=" + item.id;
+                            window.location.href = "/product-details.php?id=" + item.id;
                         });
                         suggestionsBox.appendChild(div);
                     });
@@ -765,7 +765,7 @@ function initSearch(inputId, suggestionsId) {
                     seeAll.className = "suggestion-see-all";
                     seeAll.textContent = `See all results for "${q}"`;
                     seeAll.addEventListener("click", function () {
-                        window.location.href = "search.php?q=" + encodeURIComponent(q);
+                        window.location.href = "/search.php?q=" + encodeURIComponent(q);
                     });
                     suggestionsBox.appendChild(seeAll);
 
