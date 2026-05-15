@@ -2,10 +2,13 @@
   "functions": {
     "api/*.php": {
       "runtime": "vercel-php@0.9.0",
-      "includeFiles": "ca.pem"
+      "includeFiles": "api/ca.pem"
     }
   },
   "routes": [
+    { "src": "/style.css", "dest": "/style.css" },
+    { "src": "/javascript.js", "dest": "/javascript.js" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
     { "src": "/(.*)", "dest": "/api/$1" }
   ]
 }
