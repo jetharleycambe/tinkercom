@@ -15,29 +15,29 @@ if (!$conn) {
 }
 
 class DBSessionHandler implements SessionHandlerInterface {
-    public function open($path, $name) { return true; }
-    public function close() { return true; }
-    public function read($id) {
+    public function open(string $path, string $name): bool { return true; }
+    public function close(): bool { return true; }
+    public function read(string $id): string|false {
         global $conn;
         $id = mysqli_real_escape_string($conn, $id);
         $result = mysqli_query($conn, "SELECT data FROM php_sessions WHERE session_id='$id' AND expires > NOW()");
         if ($row = mysqli_fetch_assoc($result)) return $row['data'];
         return '';
     }
-    public function write($id, $data) {
+    public function write(string $id, string $data): bool {
         global $conn;
         $id = mysqli_real_escape_string($conn, $id);
         $data = mysqli_real_escape_string($conn, $data);
         mysqli_query($conn, "REPLACE INTO php_sessions (session_id, data, expires) VALUES ('$id', '$data', DATE_ADD(NOW(), INTERVAL 1 HOUR))");
         return true;
     }
-    public function destroy($id) {
+    public function destroy(string $id): bool {
         global $conn;
         $id = mysqli_real_escape_string($conn, $id);
         mysqli_query($conn, "DELETE FROM php_sessions WHERE session_id='$id'");
         return true;
     }
-    public function gc($max) {
+    public function gc(int $max_lifetime): int|false {
         global $conn;
         mysqli_query($conn, "DELETE FROM php_sessions WHERE expires < NOW()");
         return true;
