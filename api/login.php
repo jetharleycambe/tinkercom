@@ -67,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   if (mysqli_num_rows($addr_check) === 0) {
     echo "account-info-address"; // has profile but no address
+    exit;
   } else {
     echo "index"; // fully complete
     exit;
