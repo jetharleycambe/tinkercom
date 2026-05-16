@@ -125,32 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
   </main>
   <script src="javascript.js"></script>
-<script>
-// Override for standalone login page
-document.getElementById('login-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    e.stopImmediatePropagation(); // stops javascript.js listener too
 
-    const formData = new FormData(this);
-    fetch('/login.php', { method: 'POST', body: formData })
-    .then(res => res.text())
-    .then(data => {
-        data = data.trim();
-        const err = document.querySelector('.error-message');
-        if (data === 'account-info') {
-            window.location.href = '/account-info.php';
-        } else if (data === 'account-info-address') {
-            window.location.href = '/account-info.php?step=address';
-        } else if (data === 'index') {
-            window.location.href = '/index.php';
-        } else if (data === 'admin') {
-            window.location.href = '/admin-dashboard.php';
-        } else {
-            if (err) err.textContent = data;
-        }
-    });
-});
-</script>
 </body>
 
 </html>
