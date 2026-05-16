@@ -654,7 +654,7 @@ fetch(form.getAttribute('action'),{
     if (loginModal) loginModal.style.display = "none";
     if (registerModal) registerModal.style.display = "none";
     
-    window.location.assign = "/account-info.php";
+    window.location.href = "/account-info.php";
     return;
 }
 
@@ -678,12 +678,12 @@ fetch(form.getAttribute('action'),{
     document.querySelectorAll('.login-modal, .register-modal, .account-modal').forEach(modal => {
         modal.style.display = "none";
     });
-    window.location.assign = "/index.php";
+    window.location.href = "/index.php";
     return;
 }
 
   if (data === "admin") {
-    window.location.assign = "/admin-dashboard.php";
+    window.location.href = "/admin-dashboard.php";
     return;
   }
 
