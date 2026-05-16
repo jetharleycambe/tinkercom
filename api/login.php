@@ -5,13 +5,14 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $username = trim($_POST["username"]);
   $password = trim($_POST["password"]);
+  $email = trim($_POST["email"]);
 
   // Validation code remains the same...
-  if ($username === "" && $password === "") {
+  if ($username === "" && $email === "" && $password === "") {
     echo "Input username/email and password.";
     exit;
   }
-  if ($username === "") {
+  if ($username === "" || $email === "") {
     echo "Username/Email is required.";
     exit;
   }
@@ -20,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     exit;
   }
 
-  $sql = "SELECT * FROM users WHERE username = '$username' OR email = '$username'";
+  $sql = "SELECT * FROM users WHERE username = '$username' OR email = '$email'";
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) !== 1) {
