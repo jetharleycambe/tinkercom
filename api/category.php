@@ -49,6 +49,7 @@ $brands_result = mysqli_query($conn,
     <title><?php echo htmlspecialchars($cat_name); ?> | Tinkercom</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="assets/tinkercom-favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 </head>
  
 <body class="background">

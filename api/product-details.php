@@ -78,7 +78,7 @@ while ($rp = mysqli_fetch_assoc($related_result)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="assets/tinkercom-favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <title><?php echo htmlspecialchars($product['product_name']); ?> | Tinkercom</title>
 </head>
 <body class="background">

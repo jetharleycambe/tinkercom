@@ -1,5 +1,5 @@
 <?php
-include 'db.php';  
+include 'db.php';
 session_start();
 if (!isset($_SESSION["customer_name"])) {
     header("Location: login.php");
@@ -99,19 +99,17 @@ if (!isset($_SESSION["customer_name"])) {
                             <div class="cart-card-info">
                                 <p class="product-name"><?php echo strtoupper($item['product_name']); ?></p>
                                 <p class="brand">Brand: <span class="blue-text"><?php echo $item['brand']; ?></span></p>
-                                
+
                             </div>
 
                             <p class="cart-price">₱<?php echo number_format($item['price'], 2); ?></p>
 
                             <div class="quantity-controls">
-                                <a href="update-cart-qty.php?id=<?php echo $item['cart_item_id']; ?>&action=decrease">
-                                    <button type="button">-</button>
-                                </a>
+                                <button type="button"
+                                    onclick="updateQty(<?php echo $item['cart_item_id']; ?>, 'decrease', this)">-</button>
                                 <span class="qty"><?php echo $item['quantity']; ?></span>
-                                <a href="update-cart-qty.php?id=<?php echo $item['cart_item_id']; ?>&action=increase">
-                                    <button type="button">+</button>
-                                </a>
+                                <button type="button"
+                                    onclick="updateQty(<?php echo $item['cart_item_id']; ?>, 'increase', this)">+</button>
                             </div>
 
                             <p class="item-total">₱<?php echo number_format($subtotal, 2); ?></p>

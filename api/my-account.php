@@ -370,6 +370,7 @@ $tab = isset($_GET["tab"]) ? $_GET["tab"] : "profile";
     <title>My Account | Tinkercom</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="assets/tinkercom-favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="background">

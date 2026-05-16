@@ -156,6 +156,7 @@ $user_logs = mysqli_query($conn,
     <title>Dashboard | Tinkercom Admin</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="assets/tinkercom-favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* ─────────────────────────────────────────────────────
            BOOKING ALERT CARD — mirrors .low-stock-sidebar style

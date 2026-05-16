@@ -24,6 +24,7 @@ $success = isset($_GET['success']) ? $_GET['success'] : '';
     <title>Categories | Tinkercom Admin</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="assets/tinkercom-favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="admin-body">
 <div class="admin-layout">

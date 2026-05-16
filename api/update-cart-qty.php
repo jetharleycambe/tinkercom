@@ -50,6 +50,6 @@ if (isset($_GET["id"]) && isset($_GET["action"])) {
     }
 }
 
-header("Location: cart.php");
+http_response_code(200);
 exit;
 ?>
