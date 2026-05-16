@@ -53,16 +53,29 @@ function openTab(evt, tabName) {
 
 
 // QUANTITY BUTTON (product details page)
-function changeQty(toAdd) {
-  const qtyInput = document.getElementById("qty");
-  if (!qtyInput) return;
+function updateQty(id, action, btn) {
+    const card = btn.closest('.cart-card');
+    const qtyEl = card.querySelector('.qty');
+    const totalEl = card.querySelector('.item-total');
+    const price = parseFloat(card.getAttribute('data-price'));
 
-  let currentVal = parseInt(qtyInput.textContent);
-  let newVal     = Math.max(1, currentVal + toAdd);
-  qtyInput.textContent = newVal;
+    fetch(`/update-cart-qty.php?id=${id}&action=${action}`)
+    .then(res => {
+        if (res.ok) {
+            let qty = parseInt(qtyEl.textContent);
+            if (action === 'increase') qty++;
+            else qty--;
 
-  const buynowQty = document.getElementById("buynow-qty");
-  if (buynowQty) buynowQty.value = newVal;
+            if (qty <= 0) {
+                card.remove();
+            } else {
+                qtyEl.textContent = qty;
+                card.setAttribute('data-qty', qty);
+                totalEl.textContent = '₱' + (price * qty).toLocaleString('en-PH', { minimumFractionDigits: 2 });
+            }
+            updateSummary();
+        }
+    });
 }
 
 var selectedIds = [];
