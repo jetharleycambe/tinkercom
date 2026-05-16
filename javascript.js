@@ -59,23 +59,27 @@ function updateQty(id, action, btn) {
     const totalEl = card.querySelector('.item-total');
     const price = parseFloat(card.getAttribute('data-price'));
 
-    fetch(`/update-cart-qty.php?id=${id}&action=${action}`)
-    .then(res => {
-        if (res.ok) {
-            let qty = parseInt(qtyEl.textContent);
-            if (action === 'increase') qty++;
-            else qty--;
+    // Update UI instantly — don't wait for server
+    let qty = parseInt(qtyEl.textContent);
+    if (action === 'increase') qty++;
+    else qty--;
 
-            if (qty <= 0) {
-                card.remove();
-            } else {
-                qtyEl.textContent = qty;
-                card.setAttribute('data-qty', qty);
-                totalEl.textContent = '₱' + (price * qty).toLocaleString('en-PH', { minimumFractionDigits: 2 });
-            }
-            updateSummary();
-        }
-    });
+    if (qty <= 0) {
+        card.remove();
+        updateSummary();
+        // Still tell server to delete
+        fetch(`/update-cart-qty.php?id=${id}&action=${action}`);
+        return;
+    }
+
+    // Update display immediately
+    qtyEl.textContent = qty;
+    card.setAttribute('data-qty', qty);
+    totalEl.textContent = '₱' + (price * qty).toLocaleString('en-PH', { minimumFractionDigits: 2 });
+    updateSummary();
+
+    // Save to server in background — no waiting
+    fetch(`/update-cart-qty.php?id=${id}&action=${action}`);
 }
 
 var selectedIds = [];
